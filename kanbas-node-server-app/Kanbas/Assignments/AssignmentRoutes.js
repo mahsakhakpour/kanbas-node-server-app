@@ -1,7 +1,7 @@
 import db from "../../Database/index.js"
 function AssignmentRoutes(app) {
 
-  app.delete("/api/assignments/:mid", (req, res) => {
+  app.delete("/api/ssignments/:mid", (req, res) => {
     const { mid } = req.params;
     db.assignments = db.assignments.filter((m) => m._id !== mid);
     res.sendStatus(200);
@@ -10,13 +10,13 @@ function AssignmentRoutes(app) {
 
   app.post("/api/courses/:cid/assignments", (req, res) => {
     const { cid } = req.params;
-    const newAssignement = {
+    const newAssignment = {
       ...req.body,
       course: cid,
       _id: new Date().getTime().toString(),
     };
-    db.assignments.push(newAssignement);
-    res.send(newAssignement);
+    db.assignments.push(newAssignment);
+    res.send(newAssignment);
   });
 
 
