@@ -8,6 +8,12 @@ function ModuleRoutes(app) {
     const modules = await dao.findModulesByAuthor(id);
     res.json(modules);
   });
+
+  app.get("/api/courses/:id/modules", async (req, res) => { 
+    const { id } = req.params;
+    const modules = await dao.findModulesForCourse(id);
+    res.json(modules);
+  });
  
 
   const findAllModules = async (req, res) => {

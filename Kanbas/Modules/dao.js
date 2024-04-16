@@ -11,6 +11,7 @@ export const updateModule = (id, module) =>  model.updateOne({ _id: id }, { $set
 export const deleteModule = (id) => model.deleteOne({ _id: id }); 
 export const findModuleById = (moduleId) => model.findById(moduleId);
 export const findModulesByAuthor = (author) => model.find({ author: author });
+export const findModulesForCourse = (courseId) => model.find({course: courseId});
 
 
 
